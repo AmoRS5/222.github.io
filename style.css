@@ -1,0 +1,124 @@
+/* Genel stiller */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #FF5733;
+}
+
+main {
+    padding: 50px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Tanıtım sayfası özel stiller */
+.tanitim {
+    background-image: url('background.jpg');
+    background-size: cover;
+    color: white;
+    padding: 150px;
+    text-align: center;
+}
+
+.tanitim h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.tanitim p {
+    font-size: 24px;
+    line-height: 1.6;
+}
+
+/* İletişim sayfası özel stiller */
+/* İletişim sayfası özel stiller */
+.iletisim {
+    background: linear-gradient(to bottom right, orange, red);
+    color: white;
+    padding: 150px;
+    text-align: center;
+}
+
+.iletisim h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.iletisim-bilgileri {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iletisim-bilgileri p {
+    font-size: 24px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Daha küçük ekranlar için medya sorguları */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tanitim {
+        padding: 100px;
+    }
+
+    .iletisim {
+        padding: 100px;
+    }
+
+    .tanitim h2, .iletisim h2 {
+        font-size: 36px;
+    }
+
+    .tanitim p, .iletisim-bilgileri p {
+        font-size: 18px;
+    }
+}

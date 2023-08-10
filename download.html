@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dosya İndirme Sayfası</title>
+    <style>
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(to right top, #6495ED, #FF6347);
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #777777;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #777777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>222 - Dosya İndirme</h1>
+        <p>Client'i indirmek için aşağıdaki butona tıklayabilirsiniz:</p>
+        <button id="downloadButton">Dosyayı İndir</button>
+        <div id="countdown" style="display: none;"></div>
+    </div>
+    <div class="footer">
+        &copy; 2023 222. Tüm hakları saklıdır.
+    </div>
+
+    <script>
+        const downloadButton = document.getElementById("downloadButton");
+        const countdown = document.getElementById("countdown");
+
+        downloadButton.addEventListener("click", () => {
+            downloadButton.style.display = "none";
+            countdown.style.display = "block";
+
+            let seconds = 5;
+            countdown.textContent = seconds;
+
+            const countdownInterval = setInterval(() => {
+                seconds--;
+                countdown.textContent = seconds;
+
+                if (seconds === 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = "222.exe";
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

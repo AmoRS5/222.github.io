@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Giriş Yap</title>
+    <style>
+        /* Genel stil ayarları */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom right, #3498db, #e74c3c);
+        }
+
+        /* Geliştirilmiş giriş sayfası stilleri */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .container h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .container input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #3498db;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0;
+            outline: none;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .container input:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .container button:hover {
+            background-color: #0056b3;
+        }
+
+        #success {
+            color: #27ae60;
+            margin-top: 10px;
+        }
+
+        /* Sayacın stilleri */
+        #countdown-container {
+            display: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>222 - Giriş Yap</h2>
+        <input type="text" id="login-username" placeholder="Kullanıcı Adı">
+        <input type="password" id="login-password" placeholder="Parola">
+        <button onclick="login()">Giriş Yap</button>
+        <div id="success"></div>
+    </div>
+
+    <div id="countdown-container">
+        Anasayfaya yönlendiriliyorsunuz... Kalan süre: <span id="countdown">3</span> saniye.
+    </div>
+
+    <script>
+        var users = [
+            { username: "2222222222222222222", password: "admin" },
+            { username: "kullanici2", password: "sifre2" },
+            { username: "kullanici3", password: "sifre3" }
+        ];
+
+        function login() {
+            var username = document.getElementById("login-username").value;
+            var password = document.getElementById("login-password").value;
+            
+            var userFound = users.find(function(user) {
+                return user.username === username && user.password === password;
+            });
+
+            if (userFound) {
+                document.getElementById("success").innerHTML = "Başarıyla giriş yaptınız.";
+                localStorage.setItem("loggedInUser", username);
+                showCountdown();
+                startCountdown();
+            } else {
+                document.getElementById("success").innerHTML = "Giriş bilgileriniz yanlış.";
+            }
+        }
+
+        function showCountdown() {
+            document.getElementById("countdown-container").style.display = "block";
+        }
+
+        function startCountdown() {
+            var countdown = 3;
+            var countdownSpan = document.getElementById("countdown");
+
+            var countdownInterval = setInterval(function() {
+                countdown--;
+                countdownSpan.textContent = countdown;
+
+                if (countdown === 0) {
+                        clearInterval(countdownInterval);
+                        window.location.href = "index.html"; // Ana sayfaya yönlendir
+                    }
+                }, 1000); // Her saniye
+            }
+            let isLoggedIn = false; // Eğer kullanıcı giriş yapmışsa true olarak ayarlayın
+let loggedInUsername = ""; // Giriş yapmış kullanıcının adını burada tutuyoruz
+
+// Oturum kontrolü
+if (isLoggedIn) {
+    userInfo.style.visibility = "visible";
+    userInfo.style.opacity = "1";
+    // Kullanıcı adını ve resmi burada güncellenir
+    const storedUsername = localStorage.getItem("username");
+    userName.textContent = storedUsername;
+    loggedInUsername = storedUsername;
+}
+
+// Çıkış yap butonuna tıklanınca
+logoutButton.addEventListener("click", () => {
+    isLoggedIn = false;
+    loggedInUsername = "";
+    userInfo.style.visibility = "hidden";
+    userInfo.style.opacity = "0";
+});
+
+// Sayfa yüklendiğinde oturum kontrolü yap
+document.addEventListener("DOMContentLoaded", () => {
+    if (isLoggedIn) {
+        userInfo.style.visibility = "visible";
+        userInfo.style.opacity = "1";
+        userName.textContent = loggedInUsername;
+    }
+});
+    </script>
+</body>
+</html>
+

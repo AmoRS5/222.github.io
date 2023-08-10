@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>İletişim</title>
+    <style>
+        .iletisim {
+    background: linear-gradient(to bottom right, purple, blue);
+    color: white;
+    padding: 150px;
+    text-align: center;
+}
+
+.iletisim h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.iletisim-bilgileri {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iletisim-bilgileri p {
+    font-size: 24px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Daha küçük ekranlar için medya sorguları */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tanitim {
+        padding: 100px;
+    }
+
+    .iletisim {
+        padding: 100px;
+    }
+
+    .tanitim h2, .iletisim h2 {
+        font-size: 36px;
+    }
+
+    .tanitim p, .iletisim-bilgileri p {
+        font-size: 18px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>İletişim</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Geri Dön</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="iletisim">
+            <h2>İletişim Bilgilerimiz</h2>
+            <div class="iletisim-bilgileri">
+                <p>Email: 222iletisim@mail.com</p>
+                <p></p>
+                <p>Discord: discord.gg/222market</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 222. Tüm hakları saklıdır.
+    </footer>
+</body>
+</html>
